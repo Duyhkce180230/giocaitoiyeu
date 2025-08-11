@@ -99,10 +99,10 @@
                 <label class="form-check-label" for="rememberMe">Remember me</label>
             </div>
 
-            <!-- Captcha -->
+<!--             Captcha 
             <div class="mb-3">
                 <div class="cf-turnstile" data-sitekey="0x4AAAAAABgts3i36HFv5My1"></div>
-            </div>
+            </div>-->
 
             <!-- Submit -->
             <button type="submit" class="btn btn-primary w-100">Login</button>
