@@ -130,6 +130,7 @@
                     <tr>
                         <th>Image</th>
                         <th>Signature Character</th>
+                        <th>Name</th>
                         <th>S1</th>
                         <th>S2</th>
                         <th>S3</th>
@@ -145,6 +146,7 @@
                         <tr>
                             <td><img src="${pageContext.request.contextPath}/${cone.lightConeImage}" class="img-thumbnail" alt="Light Cone Image"></td>
                             <td>${cone.characterSignatureID.characterName}</td>
+                            <td>${cone.lightConeName}</td>
                             <td><fmt:formatNumber value="${cone.pointS1}" type="number" minFractionDigits="0" /></td>
                             <td><fmt:formatNumber value="${cone.pointS2}" type="number" minFractionDigits="0" /></td>
                             <td><fmt:formatNumber value="${cone.pointS3}" type="number" minFractionDigits="0" /></td>
@@ -380,7 +382,7 @@
 
             rows.forEach(function (row) {
                 let nameCell = row.cells[1]; // cột Name
-                let signatureCell = row.cells[3]; // cột Signature Character
+                let signatureCell = row.cells[2]; // cột Signature Character
 
                 let name = nameCell ? nameCell.textContent.toLowerCase() : '';
                 let signature = signatureCell ? signatureCell.textContent.toLowerCase() : '';
