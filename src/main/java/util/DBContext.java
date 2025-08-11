@@ -43,7 +43,7 @@ public class DBContext {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 
-            String dbURL = "jdbc:sqlserver://88.222.241.39:1433;"
+            String dbURL = "jdbc:sqlserver://localhost:1433;"
                     + "databaseName=GioCai;"
                     + "user=sa;"
                     + "password=HuaKDuy@180230;"
