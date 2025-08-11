@@ -43,10 +43,10 @@ public class DBContext {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 
-            String dbURL = "jdbc:sqlserver://148.230.96.68:1433;"
+            String dbURL = "jdbc:sqlserver://localhost:1433;"
                     + "databaseName=GioCai;"
                     + "user=sa;"
-                    + "password=FPT-SPRING2025-Group3;"
+                    + "password=HuaKDuy@180230;"
                     + "encrypt=false;"
                     + "trustServerCertificate=true;"
                     + "loginTimeout=30;";
