@@ -22,7 +22,7 @@ public class DBContext {
             String dbURL = "jdbc:sqlserver://localhost:1433;"
                     + "databaseName=GioCai;"
                     + "user=sa;"
-                    + "password=HuaKDuy@180230;"
+                    + "password=HKD_GiaiLB@GioCai2004;"
                     + "encrypt=false;"
                     + "trustServerCertificate=true;"
                     + "loginTimeout=30;";
