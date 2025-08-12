@@ -792,7 +792,7 @@
 
             function calculateFinalPoint(score) {
                 let adjusted = score - 30;
-                return adjusted > 0 ? adjusted / 4 : adjusted / 6;
+                return adjusted > 0 ? adjusted / 5 : adjusted / 6;
             }
 
             function updateScores() {

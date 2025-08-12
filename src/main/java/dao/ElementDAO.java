@@ -39,17 +39,10 @@ public class ElementDAO extends DBContext {
         }
         return list;
     }
-//
-//    public static void main(String[] args) {
-//        ElementDAO dao = new ElementDAO();
-//        List<ElementHSR> ElementHSR = dao.getAllElement();
-//        if (ElementHSR.isEmpty()) {
-//            System.out.println("Không có ElementHSR nào trong cơ sở dữ liệu.");
-//        } else {
-//            System.out.println("Danh sách ElementHSR:");
-//            for (ElementHSR c : ElementHSR) {
-//                System.out.println(c); // in thông tin từ toString() của CharacterHSR
-//            }
-//        }
-//    }
+
+    public static void main(String[] args) {
+       
+        String secrecKey = System.getenv("CLOUDFLARE_SECRET_KEY");
+        System.out.println(secrecKey);
+    }
 }

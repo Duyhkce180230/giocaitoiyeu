@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Ditto's Star Rail PVP Draft Tool</title>
+        <title>Le Back's Star Rail PVP Draft Tool</title>
 
         <style>
             body {
