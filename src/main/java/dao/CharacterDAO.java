@@ -61,7 +61,7 @@ public class CharacterDAO extends DBContext {
                 ElementHSR element = new ElementHSR(ElementId, ElementName);
                 PathHSR path = new PathHSR(PathId, PathName);
                 Rarity rarity = new Rarity(RarityId, StarName);
-                list.add(new CharacterHSR(Id, Name, element, path, rarity, ImageIcon,ImageFull,
+                list.add(new CharacterHSR(Id, Name, element, path, rarity, ImageIcon, ImageFull,
                         Description, LastUpdate, status, pointE0, pointE1, pointE2, pointE3, pointE4,
                         pointE5, pointE6));
             }
@@ -75,10 +75,11 @@ public class CharacterDAO extends DBContext {
     public List<CharacterHSR> getAllCharacterForBanPick() {
         List<CharacterHSR> list = new ArrayList<>();
         String sql = "SELECT c.*, e.ElementName, p.PathName, r.StarName \n"
-                + "FROM [Character] c \n"
+                + "FROM [Character] c\n"
                 + "JOIN Element e ON c.ElementId = e.ElementId \n"
                 + "JOIN Path p ON c.PathId = p.PathId \n"
                 + "JOIN Rarity r ON c.RarityId = r.RarityId \n"
+                + "where status = 1\n"
                 + "ORDER BY c.Name ASC;";
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
@@ -97,10 +98,10 @@ public class CharacterDAO extends DBContext {
                 float PointE4 = rs.getFloat("PointE4");
                 float PointE5 = rs.getFloat("PointE5");
                 float PointE6 = rs.getFloat("PointE6");
-                
+
                 Rarity rarity = new Rarity(RarityId, StarName);
                 list.add(new CharacterHSR(Id, Name, rarity, ImageIcon, ImageFull, PointE0,
-                PointE1,PointE2,PointE3,PointE4,PointE5,PointE6));
+                        PointE1, PointE2, PointE3, PointE4, PointE5, PointE6));
             }
             return list;
         } catch (SQLException e) {
@@ -110,7 +111,7 @@ public class CharacterDAO extends DBContext {
     }
 
     public int newCharacter(String name, int elementId, int pathId, int rarityId,
-            String ImageIcon, String imageFull,String description, int status, float pointE0, float pointE1, float pointE2,
+            String ImageIcon, String imageFull, String description, int status, float pointE0, float pointE1, float pointE2,
             float pointE3, float pointE4, float pointE5, float pointE6) {
         String sql = "INSERT INTO Character(Name, ElementId,PathId,RarityId,"
                 + "ImageIcon,ImageFull,Description,LastUpdate,Status,PointE0,PointE1,PointE2,PointE3,PointE4,PointE5,PointE6) \n"
@@ -170,7 +171,7 @@ public class CharacterDAO extends DBContext {
             ps.setFloat(13, pointE4);
             ps.setFloat(14, pointE5);
             ps.setFloat(15, pointE6);
-            ps.setInt(16,charId);
+            ps.setInt(16, charId);
             int row = ps.executeUpdate();
             if (row > 0) {
                 return 1;

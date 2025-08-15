@@ -157,11 +157,12 @@ public class LightConeDAO extends DBContext {
         List<LightCone> list = new ArrayList<>();
         String sql = "SELECT l.Id,l.Name,l.ImageUrl,l.CharacterSignature, \n"
                 + "l.PointS1,l.PointS2,l.PointS3,l.PointS4,l.PointS5,\n"
-                + " r.RarityId, r.StarName,p.PathId, \n"
+                + "r.RarityId, r.StarName,p.PathId, \n"
                 + "p.PathName , c.Name as CharName FROM LightCone l\n"
                 + "JOIN Path p ON l.PathId = p.PathId\n"
                 + "JOIN Rarity r ON l.RarityId = r.RarityId\n"
                 + "JOIN Character c ON l.CharacterSignature = c.Id\n"
+                + "where c.Status = 1\n"
                 + "order by CharName";
         try {
             PreparedStatement ps = conn.prepareStatement(sql);

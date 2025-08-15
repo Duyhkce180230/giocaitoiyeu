@@ -53,7 +53,7 @@ public class DBContext {
 //            String dbURL = "jdbc:sqlserver://88.222.241.39:1433;"
 //                    + "databaseName=GioCai;"
 //                    + "user=sa;"
-//                    + "password=HuaKDuy@180230;"
+//                    + "password=HKD_GiaiLB@GioCai2004;"
 //                    + "encrypt=false;"
 //                    + "trustServerCertificate=true;"
 //                    + "loginTimeout=30;";

@@ -557,6 +557,26 @@
                 left: 20px;
             }
 
+            .roll-box {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                background-color: #4b2e60;
+                border: 1px solid #9e80c0;
+                border-radius: 10px;
+                padding: 15px;
+                width: 120px;
+            }
+
+            .roll-value {
+                font-size: 22px;
+                font-weight: bold;
+                color: #fff;
+                margin-bottom: 10px;
+            }
+
+
+
 
         </style>
     </head>
@@ -571,6 +591,18 @@
             <div class="settings-row">
                 <input type="text" id="team1-input" placeholder="Team 1 Name">
                 <input type="text" id="team2-input" placeholder="Team 2 Name">
+            </div>
+            <div class="settings-row">
+                <!-- Team 1 Roll -->
+                <div class="roll-box">
+                    <div class="roll-value" id="team1-roll-value">0</div>
+                    <button onclick="rollForTeam(1)">Roll for Team 1</button>
+                </div>
+                <!-- Team 2 Roll -->
+                <div class="roll-box">
+                    <div class="roll-value" id="team2-roll-value">0</div>
+                    <button onclick="rollForTeam(2)">Roll for Team 2</button>
+                </div>
             </div>
         </div>
         <!-- DRAFT SECTION -->
@@ -587,7 +619,7 @@
                         <div class="slot-half pick-slot" id="slot-3">Picking... (3)</div>  
                         <div class="slot-half pick-slot" id="slot-6">Picking... (6)</div>
                     </div>
-                    <div class="slot" id="slot-7">Banning... (7)</div>
+                    <div class="slot" id="slot-8">Banning... (8)</div>
                     <div class="slot-row">
                         <div class="slot-half pick-slot" id="slot-10">Picking... (10)</div>
                         <div class="slot-half pick-slot" id="slot-11">Picking... (11)</div>
@@ -735,7 +767,7 @@
                         <div class="slot-half pick-slot" id="slot-4">Picking... (4)</div>
                         <div class="slot-half pick-slot" id="slot-5">Picking... (5)</div>
                     </div>
-                    <div class="slot" id="slot-8">Banning... (8)</div>
+                    <div class="slot" id="slot-7">Banning... (7)</div>
                     <div class="slot-row">
                         <div class="slot-half pick-slot" id="slot-9">Picking... (9)</div>
                         <div class="slot-half pick-slot" id="slot-12">Picking... (12)</div>
@@ -751,6 +783,13 @@
                 </div>
             </div>
         </div>
+        <script>
+            function rollForTeam(team) {
+                var roll = Math.floor(Math.random() * 100) + 1;
+                document.getElementById("team" + team + "-roll-value").textContent = roll;
+            }
+
+        </script>
         <script>
             const team1Input = document.getElementById('team1-input');
             const team2Input = document.getElementById('team2-input');
@@ -892,7 +931,7 @@
                 let historyStack = [];
                 const selectedCharacters = new Set();
                 const MAX_SCORE = 30;
-                let timers = {team1: {reserve: 9 * 60 + 59, penalty: 0}, team2: {reserve: 9 * 60 + 59, penalty: 0}};
+                let timers = {team1: {reserve: 14 * 60 + 59, penalty: 0}, team2: {reserve: 14 * 60 + 59, penalty: 0}};
                 let generalTime = 30;
                 let timerInterval = null;
                 let currentPickIndex = 0;
@@ -941,7 +980,9 @@
 
                 function nextTurn() {
                     currentPickIndex++;
-                    startTurn();
+                    if (currentPickIndex >= 2) {
+                        startTurn();
+                    }
                 }
 
                 function updateTeamScore(teamSlots, scoreEl) {
@@ -1252,8 +1293,8 @@
                     team2ScoreEl.textContent = "0/" + MAX_SCORE;
 
                     timers = {
-                        team1: {reserve: 9 * 60 + 59, penalty: 0},
-                        team2: {reserve: 9 * 60 + 59, penalty: 0}
+                        team1: {reserve: 14 * 60 + 59, penalty: 0},
+                        team2: {reserve: 14 * 60 + 59, penalty: 0}
                     };
                     generalTime = 30;
 
@@ -1261,7 +1302,7 @@
                     updateTimeDisplay("team2");
                     if (timerInterval)
                         clearInterval(timerInterval);
-                    startTurn();
+                    
                 });
 
 
@@ -1366,7 +1407,7 @@
 
                 updateTimeDisplay("team1");
                 updateTimeDisplay("team2");
-                startTurn();
+                
             });
         </script>
 
