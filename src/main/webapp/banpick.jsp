@@ -132,6 +132,7 @@
                 margin-bottom: 5px;
                 font-size: 14px;
                 font-weight: 500;
+                position: relative;
                 overflow: hidden;
             }
             .slot img {
@@ -142,8 +143,14 @@
                 margin-top: 50px;
                 filter: grayscale(100%);
                 background-color: grey;
+                z-index: 0;
             }
 
+            .slot span {
+                position: relative;
+                z-index: 1;
+                color: white;
+            }
 
             .slot-row {
                 text-align: center;
@@ -575,7 +582,21 @@
                 margin-bottom: 10px;
             }
 
+            .blinking {
+                animation: blink 1s infinite;
+            }
 
+            @keyframes blink {
+                0%   {
+                    box-shadow: 0 0 10px 3px #fff;
+                }
+                50%  {
+                    box-shadow: 0 0 10px 3px #00ffcc;
+                }
+                100% {
+                    box-shadow: 0 0 10px 3px #fff;
+                }
+            }
 
 
         </style>
@@ -917,10 +938,10 @@
                 }
 
 
-                const team1Slots = [1, 3, 6, 7, 10, 11, 14, 15, 18, 19]
+                const team1Slots = [1, 3, 6, 8, 10, 11, 14, 15, 18, 19]
                         .map(num => document.getElementById("slot-" + num))
                         .filter(Boolean);
-                const team2Slots = [2, 4, 5, 8, 9, 12, 13, 16, 17, 20]
+                const team2Slots = [2, 4, 5, 7, 9, 12, 13, 16, 17, 20]
                         .map(num => document.getElementById("slot-" + num))
                         .filter(Boolean);
                 const pickOrder = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
@@ -964,6 +985,11 @@
                     let currentSlot = pickOrder[currentPickIndex];
                     let currentTeam = team1Slots.includes(currentSlot) ? "team1" : "team2";
 
+
+                    pickOrder.forEach(slot => slot.classList.remove("blinking"));
+
+                    currentSlot.classList.add("blinking");
+
                     timerInterval = setInterval(function () {
                         if (generalTime > 0) {
                             generalTime--;
@@ -983,6 +1009,11 @@
                     if (currentPickIndex >= 2) {
                         startTurn();
                     }
+                }
+                function clearBlinking() {
+                    pickOrder.forEach(slot =>
+                        slot.classList.remove("blinking")
+                    );
                 }
 
                 function updateTeamScore(teamSlots, scoreEl) {
@@ -1146,6 +1177,7 @@
                         document.querySelector(".grid").style.display = "none";
                         document.querySelector(".search-bar").style.display = "none";
                         document.querySelector(".scorecalc-container").style.display = "block";
+                        clearBlinking();
                     }
                 });
 
@@ -1302,7 +1334,7 @@
                     updateTimeDisplay("team2");
                     if (timerInterval)
                         clearInterval(timerInterval);
-                    
+
                 });
 
 
@@ -1407,7 +1439,7 @@
 
                 updateTimeDisplay("team1");
                 updateTimeDisplay("team2");
-                
+
             });
         </script>
 
