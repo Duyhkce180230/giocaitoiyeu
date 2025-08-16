@@ -4,8 +4,9 @@
 
 <html>
     <head>
-        <meta charset="UTF-8">
         <title>Separated Draft UI</title>
+        <meta charset="UTF-8">
+        <link rel="icon" type="image/png" href="images/LogoGC.png">
         <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
         <style>

@@ -4,7 +4,9 @@
 <html>
     <head>
         <title>Le Back's Star Rail PVP Draft Tool</title>
-
+        <meta charset="UTF-8">
+        <link rel="icon" type="image/png" href="images/LogoGC.png">
+        
         <style>
             body {
                 background: url("${pageContext.request.contextPath}/images/BackgroundGioCai.jpg") no-repeat center center fixed;
