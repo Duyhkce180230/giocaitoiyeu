@@ -1090,7 +1090,7 @@
 
                         const overlay = document.createElement("div");
                         overlay.classList.add("char-point-overlay");
-                        overlay.textContent = "+" + img.getAttribute("data-point-e0");
+                        overlay.textContent = img.getAttribute("data-point-e0");
                         overlay.style.position = "absolute";
                         overlay.style.top = "5px";
                         overlay.style.right = "5px";
@@ -1120,7 +1120,7 @@
                             const lightConeContainer = controlsDiv.querySelector("div");
                             const pointSInput = lightConeContainer.querySelector('input[name="point' + selectedS + '"]');
                             const pointS = pointSInput ? parseFloat(pointSInput.value) || 0 : 0;
-                            overlay.textContent = "+" + (pointE + pointS);
+                            overlay.textContent = (pointE + pointS).toFixed(1);
                             updateTeamScore(team1Slots.includes(emptySlot) ? team1Slots : team2Slots, team1Slots.includes(emptySlot) ? team1ScoreEl : team2ScoreEl);
                         };
 

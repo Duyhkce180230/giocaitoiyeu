@@ -313,7 +313,7 @@
                                     <option value="0" ${cone.status == 0 ? 'selected' : ''}>Inactive</option>
                                 </select>
                             </div>
-                            <!-- E1-E6 Points -->
+                            
                             <div class="row">
                                 <div class="col-md" style="flex: 0 0 20.83%; max-width: 20%;">
                                     <label>Point S1</label>

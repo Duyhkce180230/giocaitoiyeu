@@ -374,13 +374,13 @@
 
                             <label>Points E0 - E6</label>
                             <div class="d-flex gap-2 mb-3">
-                                <input type="number" name="pointE0" id="pointE0${character.characterID}" value="${empty character.pointE0 ? 0 : character.pointE0}" class="form-control" min="0" step="0.25" placeholder="Point E0" style="flex: 1;">
-                                <input type="number" name="pointE1" id="pointE1${character.characterID}" value="${empty character.pointE1 ? 0 : character.pointE1}" class="form-control" min="0" step="0.25" placeholder="Point E1" style="flex: 1;">
-                                <input type="number" name="pointE2" id="pointE2${character.characterID}" value="${empty character.pointE2 ? 0 : character.pointE2}" class="form-control" min="0" step="0.25" placeholder="Point E2" style="flex: 1;">
-                                <input type="number" name="pointE3" id="pointE3${character.characterID}" value="${empty character.pointE3 ? 0 : character.pointE3}" class="form-control" min="0" step="0.25" placeholder="Point E3" style="flex: 1;">
-                                <input type="number" name="pointE4" id="pointE4${character.characterID}" value="${empty character.pointE4 ? 0 : character.pointE4}" class="form-control" min="0" step="0.25" placeholder="Point E4" style="flex: 1;">
-                                <input type="number" name="pointE5" id="pointE5${character.characterID}" value="${empty character.pointE5 ? 0 : character.pointE5}" class="form-control" min="0" step="0.25" placeholder="Point E5" style="flex: 1;">
-                                <input type="number" name="pointE6" id="pointE6${character.characterID}" value="${empty character.pointE6 ? 0 : character.pointE6}" class="form-control" min="0" step="0.25" placeholder="Point E6" style="flex: 1;">
+                                <input type="number" name="pointE0" id="pointE0${character.characterID}" value="${empty character.pointE0 ? 0 : character.pointE0}" class="form-control" step="0.25" placeholder="Point E0" style="flex: 1;">
+                                <input type="number" name="pointE1" id="pointE1${character.characterID}" value="${empty character.pointE1 ? 0 : character.pointE1}" class="form-control" step="0.25" placeholder="Point E1" style="flex: 1;">
+                                <input type="number" name="pointE2" id="pointE2${character.characterID}" value="${empty character.pointE2 ? 0 : character.pointE2}" class="form-control" step="0.25" placeholder="Point E2" style="flex: 1;">
+                                <input type="number" name="pointE3" id="pointE3${character.characterID}" value="${empty character.pointE3 ? 0 : character.pointE3}" class="form-control" step="0.25" placeholder="Point E3" style="flex: 1;">
+                                <input type="number" name="pointE4" id="pointE4${character.characterID}" value="${empty character.pointE4 ? 0 : character.pointE4}" class="form-control" step="0.25" placeholder="Point E4" style="flex: 1;">
+                                <input type="number" name="pointE5" id="pointE5${character.characterID}" value="${empty character.pointE5 ? 0 : character.pointE5}" class="form-control" step="0.25" placeholder="Point E5" style="flex: 1;">
+                                <input type="number" name="pointE6" id="pointE6${character.characterID}" value="${empty character.pointE6 ? 0 : character.pointE6}" class="form-control" step="0.25" placeholder="Point E6" style="flex: 1;">
                             </div>
 
                         </div>
