@@ -4,7 +4,7 @@
 
 <html>
     <head>
-        <title>Separated Draft UI</title>
+        <title>Gio Cai Le Bach</title>
         <meta charset="UTF-8">
         <link rel="icon" type="image/png" href="images/LogoGC.png">
         <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -953,7 +953,7 @@
                 let historyStack = [];
                 const selectedCharacters = new Set();
                 const MAX_SCORE = 30;
-                let timers = {team1: {reserve: 14 * 60 + 59, penalty: 0}, team2: {reserve: 14 * 60 + 59, penalty: 0}};
+                let timers = {team1: {reserve: 5 * 60, penalty: 0}, team2: {reserve: 5 * 60 , penalty: 0}};
                 let generalTime = 30;
                 let timerInterval = null;
                 let currentPickIndex = 0;
@@ -1326,8 +1326,8 @@
                     team2ScoreEl.textContent = "0/" + MAX_SCORE;
 
                     timers = {
-                        team1: {reserve: 14 * 60 + 59, penalty: 0},
-                        team2: {reserve: 14 * 60 + 59, penalty: 0}
+                        team1: {reserve: 5 * 60, penalty: 0},
+                        team2: {reserve: 5 * 60, penalty: 0}
                     };
                     generalTime = 30;
 
