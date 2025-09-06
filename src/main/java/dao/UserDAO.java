@@ -689,11 +689,11 @@ public class UserDAO extends DBContext {
     }
 
 
-    public static void main(String[] args) {
-        UserDAO dao = new UserDAO();
-        
-        User acc = dao.verifyMD5("Admin","123");
-        
-        System.out.println(acc);
-    }
+//    public static void main(String[] args) {
+//        UserDAO dao = new UserDAO();
+//        
+//        User acc = dao.verifyMD5("Admin","123");
+//        
+//        System.out.println(acc);
+//    }
 }

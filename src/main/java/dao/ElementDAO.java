@@ -40,9 +40,9 @@ public class ElementDAO extends DBContext {
         return list;
     }
 
-    public static void main(String[] args) {
-       
-        String secrecKey = System.getenv("CLOUDFLARE_SECRET_KEY");
-        System.out.println(secrecKey);
-    }
+//    public static void main(String[] args) {
+//       
+//        String secrecKey = System.getenv("CLOUDFLARE_SECRET_KEY");
+//        System.out.println(secrecKey);
+//    }
 }

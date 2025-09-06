@@ -29,6 +29,11 @@ public class LightCone {
     public LightCone() {
     }
 
+    public LightCone(int lightConeID, String lightConeImage) {
+        this.lightConeID = lightConeID;
+        this.lightConeImage = lightConeImage;
+    }
+
     public LightCone(int lightConeID, String lightConeName, PathHSR pathID, 
             Rarity rarityID, CharacterHSR CharacterSignatureID, String lightConeImage, String description, Timestamp lastUpdate, int status, float pointS1, float pointS2, float pointS3, float pointS4, float pointS5) {
         this.lightConeID = lightConeID;

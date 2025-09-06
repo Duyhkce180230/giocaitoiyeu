@@ -105,7 +105,8 @@
 
         <!-- Các nút chính -->
         <div class="main-container">
-            <a class="button" href="${pageContext.request.contextPath}/banpick">Ban pick</a>
+            <a class="button" href="${pageContext.request.contextPath}/banpick?action=banpick1">Ban pick 1</a>
+            <a class="button" href="${pageContext.request.contextPath}/banpick?action=banpick2">Ban pick 2</a>
             <a class="button" href="${pageContext.request.contextPath}/character">Character</a>
             <a class="button" href="${pageContext.request.contextPath}/lightcone">Light Cone</a>
             <a class="button" href="${pageContext.request.contextPath}/teamtest">Calculator</a>

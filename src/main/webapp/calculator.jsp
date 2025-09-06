@@ -287,7 +287,7 @@
                 margin: 15% auto;
                 padding: 20px;
                 border-radius: 8px;
-                width: 320px;
+                width: 640px;
                 box-shadow: 0 0 10px #000;
                 color: #fff;
             }
@@ -335,7 +335,7 @@
                 width: 100%;
                 background: #1f1f1f;
                 border: 1px solid #66ccff;
-                max-height: 200px;
+                max-height: 350px;
                 overflow-y: auto;
                 z-index: 10000;
                 flex-direction: column;
@@ -359,7 +359,7 @@
                 color: #aaa;
             }
             .custom-select img {
-                width: 40px;
+                width: 60px;
                 height: auto;
                 border-radius: 4px;
             }
@@ -612,7 +612,7 @@
             function resetSlot(slot) {
                 slot.innerHTML = "";
                 slot.classList.remove("clickable");
-                slot.style.background = "#333";
+                slot.style.background = "#6f5b81";
                 for (var i = 0; i <= 6; i++) {
                     delete slot.dataset["pointE" + i];
                 }
@@ -622,6 +622,7 @@
                 delete slot.dataset.rarity;
             }
 
+            
             // ===== Compute Cost =====
             function computeCost() {
                 var totalOverlay = 0;

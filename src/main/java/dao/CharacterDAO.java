@@ -203,14 +203,15 @@ public class CharacterDAO extends DBContext {
 
     public List<CharacterHSR> getAllCharacterAsCategory() {
         List<CharacterHSR> list = new ArrayList<>();
-        String sql = "select Id,Name from Character";
+        String sql = "select Id,Name,Status from Character";
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 int id = rs.getInt("Id");
                 String name = rs.getString("Name");
-                list.add(new CharacterHSR(id, name));
+                int status = rs.getInt("Status");
+                list.add(new CharacterHSR(id, name, status));
             }
             return list;
         } catch (SQLException e) {

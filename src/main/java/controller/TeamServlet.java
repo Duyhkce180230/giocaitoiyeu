@@ -4,27 +4,24 @@
  */
 package controller;
 
-import dao.CharacterDAO;
-import dao.LightConeDAO;
+import dao.UserDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.util.List;
-import model.CharacterHSR;
-import model.LightCone;
+import jakarta.servlet.http.HttpSession;
+import model.Role;
+import model.User;
 
 /**
  *
  * @author Hua Khanh Duy - CE180230 - SE1814
  */
-@MultipartConfig
-@WebServlet(name = "BanPickServlet", urlPatterns = {"/banpick"})
-public class BanPickServlet extends HttpServlet {
+@WebServlet(name = "TeamServlet", urlPatterns = {"/teamsave"})
+public class TeamServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -43,10 +40,10 @@ public class BanPickServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet BanPickServlet</title>");
+            out.println("<title>Servlet TeamServlet</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet BanPickServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet TeamServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -64,37 +61,18 @@ public class BanPickServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String action = request.getParameter("action");
-        CharacterDAO characterDAO = new CharacterDAO();
-        LightConeDAO lightConeDAO = new LightConeDAO();
-
-        if (action == null) {
-            action = "listCharacter";
+        String contextPath = request.getContextPath();
+        HttpSession session = request.getSession();
+        User acc = (User) session.getAttribute("user");
+        if (acc == null) {
+            response.sendRedirect(contextPath + "/Home");
+            return;
         }
-
-        switch (action.toLowerCase()) {
-            case "banpick1":
-                // Lấy dữ liệu cho Ban pick 1
-                List<LightCone> lightcones1 = lightConeDAO.getAllLightConeForBanPick();
-                List<CharacterHSR> characters1 = characterDAO.getAllCharacterForBanPick();
-                request.setAttribute("listLightconeBanPick", lightcones1);
-                request.setAttribute("listCharacterBanPick", characters1);
-                request.getRequestDispatcher("ban2pick8.jsp").forward(request, response);
-                break;
-            case "banpick2":
-                // Lấy dữ liệu cho Ban pick 2
-                List<LightCone> lightcones2 = lightConeDAO.getAllLightConeForBanPick();
-                List<CharacterHSR> characters2 = characterDAO.getAllCharacterForBanPick();
-                request.setAttribute("listLightconeBanPick", lightcones2);
-                request.setAttribute("listCharacterBanPick", characters2);
-                request.getRequestDispatcher("banpick.jsp").forward(request, response);
-                break;
-            case "listcharacter":
-            default:
-                request.getRequestDispatcher("home.jsp").forward(request, response);
-                break;
+        if (acc.getRole() != Role.ADMIN) {
+            response.sendRedirect(contextPath + "/Home");
         }
-
+        
+        
     }
 
     /**
@@ -108,7 +86,7 @@ public class BanPickServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        processRequest(request, response);
     }
 
     /**

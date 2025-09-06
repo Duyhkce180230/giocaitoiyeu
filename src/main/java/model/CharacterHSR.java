@@ -32,6 +32,8 @@ public class CharacterHSR {
 
     public CharacterHSR() {
     }
+    
+     
 
     public CharacterHSR(int characterID, String characterName, ElementHSR elementID, PathHSR pathID, Rarity rarityID, String imageIcon, String imageFull, String description, Timestamp lastUpdate, int status, float pointE0, float pointE1, float pointE2, float pointE3, float pointE4, float pointE5, float pointE6) {
         this.characterID = characterID;
@@ -69,12 +71,18 @@ public class CharacterHSR {
         this.imageFull = imageFull;
     }
 
+    public CharacterHSR(int characterID, String characterName, int status) {
+        this.characterID = characterID;
+        this.characterName = characterName;
+        this.status = status;
+    }
 
     public CharacterHSR(int characterID, String characterName) {
         this.characterID = characterID;
         this.characterName = characterName;
     }
 
+    
     public CharacterHSR(int characterID, String characterName, Rarity rarityID, String imageIcon, String imageFull, float pointE0, float pointE1, float pointE2, float pointE3, float pointE4, float pointE5, float pointE6) {
         this.characterID = characterID;
         this.characterName = characterName;
