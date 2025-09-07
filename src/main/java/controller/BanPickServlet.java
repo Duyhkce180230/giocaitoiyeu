@@ -81,7 +81,7 @@ public class BanPickServlet extends HttpServlet {
                 request.setAttribute("listCharacterBanPick", characters1);
                 request.getRequestDispatcher("ban2pick8.jsp").forward(request, response);
                 break;
-            case "banpick2":
+            case "banpick97242201":
                 // Lấy dữ liệu cho Ban pick 2
                 List<LightCone> lightcones2 = lightConeDAO.getAllLightConeForBanPick();
                 List<CharacterHSR> characters2 = characterDAO.getAllCharacterForBanPick();

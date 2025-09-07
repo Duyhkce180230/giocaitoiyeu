@@ -6,7 +6,7 @@
         <title>Le Back's Star Rail PVP Draft Tool</title>
         <meta charset="UTF-8">
         <link rel="icon" type="image/png" href="images/LogoGC.png">
-        
+
         <style>
             body {
                 background: url("${pageContext.request.contextPath}/images/BackgroundGioCai.jpg") no-repeat center center fixed;
@@ -105,10 +105,12 @@
 
         <!-- Các nút chính -->
         <div class="main-container">
-            <a class="button" href="${pageContext.request.contextPath}/banpick?action=banpick1">Ban pick 1</a>
-            <a class="button" href="${pageContext.request.contextPath}/banpick?action=banpick2">Ban pick 2</a>
-            <a class="button" href="${pageContext.request.contextPath}/character">Character</a>
-            <a class="button" href="${pageContext.request.contextPath}/lightcone">Light Cone</a>
+            <a class="button" href="${pageContext.request.contextPath}/banpick?action=banpick1">Ban pick</a>
+<!--            <a class="button" href="${pageContext.request.contextPath}/banpick?action=banpick2">Ban pick 2</a>-->
+            <c:if test="${not empty sessionScope.user}">
+                <a class="button" href="${pageContext.request.contextPath}/character">Character</a>
+                <a class="button" href="${pageContext.request.contextPath}/lightcone">Light Cone</a>
+            </c:if>
             <a class="button" href="${pageContext.request.contextPath}/teamtest">Calculator</a>
         </div>
 

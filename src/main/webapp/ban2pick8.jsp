@@ -18,11 +18,11 @@
                 font-size:16px;
                 line-height:1.5;
                 color:#fff;
-                background:#252f2c;
+                background:#19181a;
                 overflow-x: hidden;
             }
 
-            
+
             .settings-section{
                 padding:12px 16px;
                 border-bottom:1px solid #1f1f1f;
@@ -69,10 +69,10 @@
             .team-col{
                 flex:1 1 50%;
                 min-width:0px;
-                background:#001a10;
+                background:#0d0d0d;
                 border-radius:10px;
                 padding:14px 12px;
-                border:1px solid #1f1f1f;
+                border:2px solid #1f1f1f;
             }
             .team-header{
                 width: 48%;
@@ -85,19 +85,19 @@
                 font-weight:700
             }
             .team-header.blue{
-                background:#001066;
+                background:#3551e6;
                 border:1px solid #2b477f
             }
             .team-header.red{
-                background:#8f241c;
+                background:#c43329;
                 border:1px solid #7a3535
             }
 
-            
+
             .slot{
                 width:80px;
                 height:200px;
-                background:#0f3433;
+                background:#3c403f;
                 border:1px solid #2b2b2b;
                 border-radius:8px;
                 display:flex;
@@ -118,7 +118,7 @@
             .slot-half{
                 width:100px;
                 height:200px;
-                background:#0f3433;
+                background:#3c403f;
                 border:1px solid #2b2b2b;
                 border-radius:8px;
                 display:flex;
@@ -137,7 +137,7 @@
                 border-radius:6px;
             }
 
-            
+
             .controls-bar{
                 margin:0 16px 10px 16px;
                 background:#121212;
@@ -152,12 +152,7 @@
                 justify-content:flex-end;
                 margin-top:10px
             }
-            .button-group .btn-undo{
-                background:#1e3a8a
-            }
-            .button-group .btn-reset{
-                background:#7a2626
-            }
+
 
 
             .grid-wrap {
@@ -190,8 +185,8 @@
             }
 
             .search-bar {
-                width: 49%;
-                background: #004643;
+                width: 49.5%;
+                background: #1e1b1b;
                 border: 1px solid #2a2a2a;
                 color: #fff;
                 border-radius: 8px;
@@ -199,7 +194,7 @@
             }
             .search-bar::placeholder {
                 color: #e8e4e6;
-                opacity: 0.7;
+                opacity: 0.8;
             }
             .button-group {
                 display: flex;
@@ -212,15 +207,10 @@
                 font-weight: bold;
                 cursor: pointer;
             }
-            .btn-undo {
-                background: #1e3a8a;
-                color: white;
-            }
-            .btn-reset {
-                background: #991b1b;
-                color: white;
-            }
 
+            .grid div {
+                transition: transform 0.2s ease, box-shadow 0.2s ease;
+            }
 
             .grid .tile{
                 width:60px;
@@ -239,9 +229,10 @@
                 border:1px solid #3a3a3a;
                 transition:transform .15s
             }
-            .grid img:hover{
-                transform:scale(1.05);
-                border-color:#5a3caf
+            .grid div:hover {
+                transform: scale(1.1);
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+                z-index: 5;
             }
 
             .draft-container {
@@ -252,7 +243,7 @@
                 margin: 20px;
             }
 
-           
+
             .team-info {
                 width: 190px;
                 background: #101820;
@@ -268,7 +259,7 @@
                 color: #00d4ff;
             }
 
-            
+
             .team-slots-center {
                 flex: 1;
                 display: flex;
@@ -289,9 +280,9 @@
 
             .team-section {
                 display: flex;
-                flex-direction: column; 
-                align-items: flex-start; 
-                gap: 10px; 
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
             }
             .roll-box {
                 display: flex;
@@ -339,20 +330,20 @@
                 box-shadow: 0 0 8px rgba(0,0,0,0.4);
             }
 
-            
+
             .overlay .value {
                 min-width: 50px;
                 text-align: center;
                 font-weight: 600;
             }
 
-            
+
             .overlay .e-toggle {
                 position: relative;
                 display: inline-block;
             }
 
-            
+
             .overlay .e-toggle .e-button {
                 position: relative;
                 background: rgba(255,255,255,0.06);
@@ -370,7 +361,7 @@
                 width: 180%;
                 display: none;
                 position: absolute;
-                
+
                 left: -16px;
                 margin-top: 5px;
                 padding: 7px;
@@ -383,7 +374,7 @@
                 flex-wrap: wrap;
             }
 
-           
+
             .overlay .e-toggle .ec-selector button {
                 background: transparent;
                 border: 1px solid rgba(255,255,255,0.14);
@@ -396,13 +387,13 @@
                 line-height: 1;
             }
 
-            
+
             .overlay .e-toggle .ec-selector button.active {
                 background: rgba(255,255,255,0.18);
                 border-color: rgba(255,255,255,0.28);
             }
 
-            
+
             .slot .ec-selector {
                 display: none;
                 flex-direction: column;
@@ -410,7 +401,7 @@
                 margin-left: 4px;
             }
 
-            
+
             .slot .overlay:hover .ec-selector {
                 display: flex;
             }
@@ -430,9 +421,9 @@
 
             .overlay {
                 position: absolute;
-                top: -12px;  
-                left: 50%;  
-                transform: translateX(-50%); 
+                top: -12px;
+                left: 50%;
+                transform: translateX(-50%);
                 padding: 4px 6px;
                 background: rgba(0,0,0,0.55);
                 color: #fff;
@@ -444,7 +435,7 @@
                 z-index: 5;
             }
 
-            
+
             .lc-overlay {
                 position: absolute;
                 bottom: 6px;
@@ -461,9 +452,9 @@
                 z-index: 5;
             }
 
-            
+
             .active-lightcone-img {
-                z-index: 1; 
+                z-index: 1;
             }
 
 
@@ -600,13 +591,13 @@
                 pointer-events: none;
             }
 
-            
+
             .lc-overlay .s-toggle {
                 position: relative;
                 display: inline-block;
             }
 
-            
+
             .lc-overlay .s-toggle .s-button {
                 background: rgba(255,255,255,0.06);
                 border: 1px solid rgba(255,255,255,0.12);
@@ -617,13 +608,13 @@
                 white-space: nowrap;
             }
 
-            
+
             .lc-overlay .s-toggle .s-selector {
                 display: none;
                 position: absolute;
                 bottom: 110%;
                 left: -5px;
-                margin-bottom: 5px; 
+                margin-bottom: 5px;
                 padding: 5px;
                 background: rgba(0,0,0,0.8);
                 border-radius: 6px;
@@ -634,7 +625,7 @@
                 flex-wrap: wrap;
             }
 
-            
+
             .lc-overlay .s-toggle .s-selector button {
                 background: transparent;
                 border: 1px solid rgba(255,255,255,0.14);
@@ -646,7 +637,7 @@
                 line-height: 1;
             }
 
-            
+
             .lc-overlay .s-toggle .s-selector button.active {
                 background: rgba(255,255,255,0.18);
                 border-color: rgba(255,255,255,0.28);
@@ -654,10 +645,10 @@
 
             .selected {
                 filter: grayscale(100%) brightness(0.6);
-                pointer-events: none; 
+                pointer-events: none;
             }
 
-            
+
             @media (max-width: 992px){
                 .top-teams{
                     flex-direction:column
@@ -683,7 +674,7 @@
             .team-top-row {
                 display: flex;
                 align-items: center;
-                justify-content: space-between;  
+                justify-content: space-between;
                 margin-bottom: 12px;
             }
 
@@ -701,7 +692,7 @@
             }
 
             .time-box {
-                background: #064b46;
+                background: #1e1b1b;
                 padding: 6px 14px;
                 border-radius: 6px;
                 color: #fff;
@@ -772,9 +763,9 @@
             }
 
             .score-panel {
-                background: #1e1b1b; 
+                background: #1e1b1b;
                 color: #fff;
-                font-family: 'Orbitron', sans-serif; 
+                font-family: 'Orbitron', sans-serif;
                 font-size: 14px;
                 padding: 20px;
                 border-radius: 6px;
@@ -816,20 +807,20 @@
                 text-align: center;
             }
 
-           
+
             #t1-cost,
             #t1-total-point {
-                font-size: 24px;   
+                font-size: 24px;
                 font-weight: bold;
                 color: #fff;
                 text-align: center;
                 display: block;
                 margin-top: 4px;
-                text-shadow: 0 0 6px #00ffff; 
+                text-shadow: 0 0 6px #00ffff;
             }
             #t2-cost,
             #t2-total-point {
-                font-size: 24px; 
+                font-size: 24px;
                 font-weight: bold;
                 color: #fff;
                 text-align: center;
@@ -847,27 +838,29 @@
                 transition: background 0.2s, transform 0.2s;
             }
 
-            
+
             .btn-undo {
-                background: #1e3a8a;
+                background: #444;
                 color: white;
+                border: 1px solid #888;
             }
             .btn-undo:hover {
-                background: #2b4db3;
+                background: #666;
                 transform: scale(1.05);
             }
 
-            
+
             .btn-reset {
-                background: #991b1b;
+                background: #444;
                 color: white;
+                border: 1px solid #888;
             }
             .btn-reset:hover {
-                background: #bb2525;
+                background: #666;
                 transform: scale(1.05);
             }
 
-            
+
             .btn-setting {
                 background: #444;
                 color: #fff;
@@ -931,13 +924,72 @@
                 background: #101820;
                 border-radius: 8px;
             }
+            
+
+            /* CSS */
+            .button-4 {
+                appearance: none;
+                background-color: #FAFBFC;
+                border: 1px solid rgba(27, 31, 35, 0.15);
+                border-radius: 6px;
+                box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+                box-sizing: border-box;
+                color: #24292E;
+                cursor: pointer;
+                display: inline-block;
+                font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+                font-size: 14px;
+                font-weight: 500;
+                line-height: 20px;
+                list-style: none;
+                padding: 6px 16px;
+                position: relative;
+                transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+                user-select: none;
+                -webkit-user-select: none;
+                touch-action: manipulation;
+                vertical-align: middle;
+                white-space: nowrap;
+                word-wrap: break-word;
+            }
+
+            .button-4:hover {
+                background-color: #F3F4F6;
+                text-decoration: none;
+                transition-duration: 0.1s;
+            }
+
+            .button-4:disabled {
+                background-color: #FAFBFC;
+                border-color: rgba(27, 31, 35, 0.15);
+                color: #959DA5;
+                cursor: default;
+            }
+
+            .button-4:active {
+                background-color: #EDEFF2;
+                box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
+                transition: none 0s;
+            }
+
+            .button-4:focus {
+                outline: 1px transparent;
+            }
+
+            .button-4:before {
+                display: none;
+            }
+
+            .button-4:-webkit-details-marker {
+                display: none;
+            }
         </style>
     </head>
     <body>
 
         <div class="draft-container">
 
-            
+
             <div class="team-section">
                 <div class="score-panel">
                     <h2 id="t1-name">Team 1<br><span></span></h2>
@@ -963,7 +1015,7 @@
 
             <div class="team-slots-center">
                 <div class="team-col">
-                    
+
                     <div class="team-top-row">
                         <div class="team-header blue"> 
                             <div id="team1-name">Team 1</div> 
@@ -1043,7 +1095,7 @@
                 </div>
             </div>
 
-            
+
             <div class="team-section">
 
 
@@ -1076,6 +1128,7 @@
                     <button id="undoBtn" class="custom-btn btn-undo">Undo</button>
                     <button id="resetBtn" class="custom-btn btn-reset">Reset</button>
                     <button id="settingBtn" class="custom-btn btn-setting">⚙ Setting</button>
+<!--                    <button class="button-4" role="button"></button>-->
                 </div>
             </div>
 
@@ -1168,7 +1221,7 @@
             </div>
         </div>
 
-        
+
         <div id="lightconeModal" class="modal" style="display: none;">
             <div class="modal-content">
                 <h3>Select Lightcone</h3>
@@ -1194,7 +1247,7 @@
                         </c:forEach>
                     </div>
                 </div>
-                
+
                 <div class="modal-actions">
                     <button type="button" id="cancelBtn">CANCEL</button>
                     <button type="submit" id="confirmBtn">CONFIRM</button>
@@ -1208,17 +1261,17 @@
         const settingBtn = document.getElementById("settingBtn");
         const closeSettings = document.getElementById("closeSettings");
 
-        
+
         settingBtn.onclick = function () {
             settingsModal.style.display = "block";
         };
 
-        
+
         closeSettings.onclick = function () {
             settingsModal.style.display = "none";
         };
 
-        
+
         window.onclick = function (event) {
             if (event.target === settingsModal) {
                 settingsModal.style.display = "none";
@@ -1258,17 +1311,17 @@
             var deathsElement = document.getElementById(deathsId);
             var penaltiesElement = document.getElementById(penaltiesId);
 
-            
+
             var totalCost = parseFloat(costElement.textContent) || 0;
             var firstHalf = parseFloat(firstHalfElement.value) || 0;
             var secondHalf = parseFloat(secondHalfElement.value) || 0;
             var deaths = parseFloat(deathsElement.value) || 0;
             var penalties = parseFloat(penaltiesElement.value) || 0;
 
-            
+
             var totalPoint = (totalCost - 30) / 5 + firstHalf + secondHalf + deaths + penalties;
 
-            
+
             pointElement.textContent = totalPoint.toFixed(4);
         }
 
@@ -1328,7 +1381,7 @@
 
         function updateTeamPoints() {
             calculateTotalPoint(1);
-            calculateTotalPoint(2); 
+            calculateTotalPoint(2);
             updateWinner();
         }
 
@@ -1375,7 +1428,7 @@
         document.addEventListener("DOMContentLoaded", function () {
             const grid = document.querySelector(".grid");
             const slots = [];
-            const defaultBg = "#0f3433";
+            const defaultBg = "#3c403f";
             let currentIndex = 0;
             const searchInput = document.getElementById("searchInput");
             const slotElements = document.querySelectorAll(".slot, .slot-half");
@@ -1734,9 +1787,9 @@
                             oldOverlay.remove();
                     } else {
                         if (rarity === "4") {
-                            slot.style.background = "rgba(138, 95, 204, 0.5)";
+                            slot.style.background = "rgba(138, 95, 204, 0.7)";
                         } else if (rarity === "5") {
-                            slot.style.background = "rgba(201, 163, 106, 0.5)";
+                            slot.style.background = "rgb(230,183,65, 0.8)";
                         } else {
                             slot.style.background = "#333";
                         }
