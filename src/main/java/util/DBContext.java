@@ -37,38 +37,36 @@ public class DBContext {
 //            Logger.getLogger(DBContext.class.getName()).log(Level.SEVERE, null, ex);
 //        }
 //    }
-    // Connect Local
+
     public DBContext() {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 
-            String dbURL = "jdbc:sqlserver://giocaitoiyeu.database.windows.net:1433;"
-                    + "database=GioCai;"
-                    + "user=Giocaitoi_yeu"
-                    + "password=HKDuy@972422;"
-                    + "encrypt=true;trustServerCertificate=false;"
-                    + "hostNameInCertificate=*.database.windows.net;"
-                    + "loginTimeout=30;";
+            // Lấy thông tin từ biến môi trường (Render Environment Variables)
+            String dbURL = System.getenv("DB_URL");
+            String dbUser = System.getenv("DB_USER");
+            String dbPassword = System.getenv("DB_PASSWORD");
 
-            conn = DriverManager.getConnection(dbURL);
+            if (dbURL == null || dbUser == null || dbPassword == null) {
+                System.err.println("❌ Missing environment variables for DB connection!");
+            }
+
+            conn = DriverManager.getConnection(dbURL, dbUser, dbPassword);
 
             if (conn != null) {
-                DatabaseMetaData dm = conn.getMetaData();
-                System.out.println("Connected to DB");
-                System.out.println("Driver name: " + dm.getDriverName());
-                System.out.println("Driver version: " + dm.getDriverVersion());
-                System.out.println("Product name: " + dm.getDatabaseProductName());
-                System.out.println("Product version: " + dm.getDatabaseProductVersion());
+                System.out.println("✅ Connected to Azure SQL successfully!");
             } else {
-                System.err.println("conn == null");
+                System.err.println("❌ Connection failed (conn == null)");
             }
 
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(DBContext.class.getName()).log(Level.SEVERE, "Not Found JDBC Driver", ex);
+            Logger.getLogger(DBContext.class.getName()).log(Level.SEVERE, "❌ SQLServer JDBC Driver not found!", ex);
         } catch (SQLException ex) {
-            Logger.getLogger(DBContext.class.getName()).log(Level.SEVERE, "Error Connect DB", ex);
+            Logger.getLogger(DBContext.class.getName()).log(Level.SEVERE, "❌ Database connection error!", ex);
         }
     }
+
+
 //    public DBContext() {
 //        try {
 //            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
