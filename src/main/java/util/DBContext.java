@@ -14,62 +14,61 @@ public class DBContext {
 
     public Connection conn = null;
 
-    public DBContext() {
-        try {
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            String dbURL = "jdbc:sqlserver://localhost:1433;"
-                    + "databaseName=GioCai;"
-                    + "user=sa;"
-                    + "password=123456;"
-                    + "encrypt=true;trustServerCertificate=true;";
-            conn = DriverManager.getConnection(dbURL);
-            if (conn != null) {
-                DatabaseMetaData dm = (DatabaseMetaData) conn.getMetaData();
-                System.out.println("Driver name: " + dm.getDriverName());
-                System.out.println("Driver version: " + dm.getDriverVersion());
-                System.out.println("Product name: "
-                        + dm.getDatabaseProductName());
-                System.out.println("Product version: "
-                        + dm.getDatabaseProductVersion());
-            }
-        } catch (SQLException ex) {
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(DBContext.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    // Connect Local
 //    public DBContext() {
 //        try {
 //            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//
 //            String dbURL = "jdbc:sqlserver://localhost:1433;"
 //                    + "databaseName=GioCai;"
 //                    + "user=sa;"
-//                    + "password=HKD_GiaiLB@GioCai2004;"
-//                    + "encrypt=false;"
-//                    + "trustServerCertificate=true;"
-//                    + "loginTimeout=30;";
-//
+//                    + "password=123456;"
+//                    + "encrypt=true;trustServerCertificate=true;";
 //            conn = DriverManager.getConnection(dbURL);
-//
 //            if (conn != null) {
-//                DatabaseMetaData dm = conn.getMetaData();
-//                System.out.println("Connected to DB");
+//                DatabaseMetaData dm = (DatabaseMetaData) conn.getMetaData();
 //                System.out.println("Driver name: " + dm.getDriverName());
 //                System.out.println("Driver version: " + dm.getDriverVersion());
-//                System.out.println("Product name: " + dm.getDatabaseProductName());
-//                System.out.println("Product version: " + dm.getDatabaseProductVersion());
-//            } else {
-//                System.err.println("conn == null");
+//                System.out.println("Product name: "
+//                        + dm.getDatabaseProductName());
+//                System.out.println("Product version: "
+//                        + dm.getDatabaseProductVersion());
 //            }
-//
-//        } catch (ClassNotFoundException ex) {
-//            Logger.getLogger(DBContext.class.getName()).log(Level.SEVERE, "Not Found JDBC Driver", ex);
 //        } catch (SQLException ex) {
-//            Logger.getLogger(DBContext.class.getName()).log(Level.SEVERE, "Error Connect DB", ex);
+//        } catch (ClassNotFoundException ex) {
+//            Logger.getLogger(DBContext.class.getName()).log(Level.SEVERE, null, ex);
 //        }
 //    }
+    // Connect Local
+    public DBContext() {
+        try {
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+
+            String dbURL = "jdbc:sqlserver://giocaitoiyeu.database.windows.net:1433;"
+                    + "database=GioCai;"
+                    + "user=Giocaitoi_yeu"
+                    + "password=HKDuy@972422;"
+                    + "encrypt=true;trustServerCertificate=false;"
+                    + "hostNameInCertificate=*.database.windows.net;"
+                    + "loginTimeout=30;";
+
+            conn = DriverManager.getConnection(dbURL);
+
+            if (conn != null) {
+                DatabaseMetaData dm = conn.getMetaData();
+                System.out.println("Connected to DB");
+                System.out.println("Driver name: " + dm.getDriverName());
+                System.out.println("Driver version: " + dm.getDriverVersion());
+                System.out.println("Product name: " + dm.getDatabaseProductName());
+                System.out.println("Product version: " + dm.getDatabaseProductVersion());
+            } else {
+                System.err.println("conn == null");
+            }
+
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DBContext.class.getName()).log(Level.SEVERE, "Not Found JDBC Driver", ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(DBContext.class.getName()).log(Level.SEVERE, "Error Connect DB", ex);
+        }
+    }
 //    public DBContext() {
 //        try {
 //            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
