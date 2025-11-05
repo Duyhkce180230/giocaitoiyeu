@@ -107,10 +107,10 @@
         <div class="main-container">
             <a class="button" href="${pageContext.request.contextPath}/banpick?action=banpick1">Ban pick</a>
 <!--            <a class="button" href="${pageContext.request.contextPath}/banpick?action=banpick2">Ban pick 2</a>-->
-            <c:if test="${not empty sessionScope.user}">
+            
                 <a class="button" href="${pageContext.request.contextPath}/character">Character</a>
                 <a class="button" href="${pageContext.request.contextPath}/lightcone">Light Cone</a>
-            </c:if>
+            
             <a class="button" href="${pageContext.request.contextPath}/teamtest">Calculator</a>
         </div>
 
