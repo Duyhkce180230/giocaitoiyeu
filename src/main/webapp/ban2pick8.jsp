@@ -924,7 +924,7 @@
                 background: #101820;
                 border-radius: 8px;
             }
-            
+
 
             /* CSS */
             .button-4 {
@@ -1128,7 +1128,7 @@
                     <button id="undoBtn" class="custom-btn btn-undo">Undo</button>
                     <button id="resetBtn" class="custom-btn btn-reset">Reset</button>
                     <button id="settingBtn" class="custom-btn btn-setting">⚙ Setting</button>
-<!--                    <button class="button-4" role="button"></button>-->
+                    <!--                    <button class="button-4" role="button"></button>-->
                 </div>
             </div>
 
@@ -1433,12 +1433,13 @@
             const searchInput = document.getElementById("searchInput");
             const slotElements = document.querySelectorAll(".slot, .slot-half");
             for (let i = 1; i <= 20; i++) {
+
                 let el = document.querySelector(".slot-" + i) || document.querySelector(".pick-slot-" + i);
                 if (el) {
                     slots.push(el);
                 }
             }
-
+            let selectedTiles = new Array(slots.length).fill(null);
             const team1Indices = [0, 2, 5, 7, 9, 10, 13, 14, 17, 18];
             const team2Indices = [1, 3, 4, 6, 8, 11, 12, 15, 16, 19];
             let generalTime1 = 30;
@@ -1809,6 +1810,7 @@
                     }
 
                     tile.classList.add("disabled");
+                    selectedTiles[currentIndex] = tile;
                     tile.style.pointerEvents = "none";
                     tile.style.opacity = "1";
 
@@ -1853,6 +1855,8 @@
                     t.style.pointerEvents = "auto";
                     t.style.opacity = "1";
                 });
+
+                selectedTiles = new Array(slots.length).fill(null);
 
                 var team1Input = document.getElementById("team1-input");
                 var team2Input = document.getElementById("team2-input");
@@ -1934,11 +1938,21 @@
                         resetSlot(slot);
                     }
 
-                    const lastTile = [...grid.querySelectorAll(".tile.disabled")].pop();
-                    if (lastTile) {
-                        lastTile.classList.remove("disabled");
-                        lastTile.style.pointerEvents = "auto";
-                        lastTile.style.opacity = "1";
+                    // mở khóa tile tương ứng với slot vừa undo
+                    const tileToEnable = selectedTiles[currentIndex];
+                    if (tileToEnable) {
+                        tileToEnable.classList.remove("disabled");
+                        tileToEnable.style.pointerEvents = "auto";
+                        tileToEnable.style.opacity = "1";
+                        selectedTiles[currentIndex] = null;
+                    } else {
+                        // fallback (nếu vì lý do nào đó không có mapping)
+                        const lastTile = [...grid.querySelectorAll(".tile.disabled")].pop();
+                        if (lastTile) {
+                            lastTile.classList.remove("disabled");
+                            lastTile.style.pointerEvents = "auto";
+                            lastTile.style.opacity = "1";
+                        }
                     }
 
                     if (currentIndex < slots.length - 1) {
